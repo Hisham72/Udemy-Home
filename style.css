@@ -1,0 +1,250 @@
+body{
+    margin: 0%;
+    font-family: udemy sans,sf pro text,-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #1c1d1f;
+}
+.navbar{
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 50px ;
+    flex-wrap: wrap;
+}
+#menuIcn{
+    display: none;
+}
+.search{
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 5px 0 5px;
+    padding-right: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    height: fit-content;
+    width: 40vw;
+}
+
+.searchTxt {
+    border: 0;
+    margin-bottom: 5px;
+}
+.searchSubmit{
+    border: 0;
+    background: 0;
+    
+}
+.searchIcn{
+    height: 20px;
+    position: relative;
+    top: 3px;
+}
+
+.globeIcn{
+    height: 20px;
+}
+
+#shopCrt{
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 20px;
+}
+
+.navbar > span{
+    cursor: pointer;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: udemy sans,sf pro text,-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+}
+.navbar > span:hover{
+    color: #5624d0;
+}
+.navbar > button, #explore{
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: transparent;
+    border: 1px solid #1c1d1f;
+    width: 6vw;
+    font-family: udemy sans,-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -.02rem;
+    font-size: 15px; 
+    cursor: pointer;
+    
+}
+#lgin, #explore{
+    color: #1c1d1f;
+}
+#lgin:hover, #lngbutton:hover{
+    background-color: rgb(248, 246, 242);
+}
+#snup{
+    color: #fff;
+    background-color: #1c1d1f;
+}
+
+#shopCrt{
+    cursor: pointer;
+}
+#lngbutton{
+     width: 3%;
+}
+
+header{
+    display: flex;
+    width: 92%;
+    margin: auto;
+    justify-content: space-between;
+}
+#new{
+   width: 31%;
+   padding: 10px;
+   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.19);
+   height: 20%;
+   font-size: 20px;
+   min-width: 300px;
+}
+
+#new > p{
+    font-size: 19px;
+    font-family: udemy sans,sf pro text,-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+}
+
+
+
+
+
+@media (max-width: 900px) {
+    
+    .navbar > span, .navbar > form, .navbar > button, .navbar > img{
+        display: none;
+    }
+    .navbar{
+        justify-content: space-between;
+    }
+    #udemylogo, #menuIcn{
+        display: inline;
+    }
+    #udemylogo{
+        margin-right: 20px;
+    }
+
+    header{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    } 
+    
+}
+#courses{
+   /* display: flex;*/
+    flex-direction: column;
+    width: 92%;
+    margin: auto;
+}
+#tabs{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: grid;
+    grid-auto-columns: max-content;
+    grid-auto-flow: column;
+    grid-gap: 1.6rem;
+    overflow: auto;
+    font-weight: bold;
+    color: grey;
+}
+
+
+
+#courses > h2 {
+    margin-bottom: 1px;
+}
+
+#courses > p{
+    margin-top: 10px;
+}
+
+
+#tabs > li{
+    display: inline;
+    cursor: pointer;
+}
+
+#tabs > li:hover {
+    color: black;
+}
+
+#selectedCourses{
+    border: 1px solid #d1d7dc;
+    padding: 25px;
+}
+
+#selectedCourses > h3{
+    margin-top: 1px;
+    font-size: 22px;
+}
+
+#explore{
+    font-family: udemy sans,-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: 15px;
+    width: 150px;
+    padding: 10px 5px 10px 5px;
+    margin-left: 0;
+    margin-bottom: 20px;
+}
+
+#explore:hover{
+     background-color: rgb(240, 236, 229);
+}
+
+#cards{
+    display: flex;
+    margin: 5px;
+    flex-wrap: wrap;
+}
+.card{
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+}
+.card > img{
+    width: 180px;
+}
+
+.card > h4 {
+    margin: 0px;
+    font-size: 15px;
+}
+
+.author{
+    color: #6a6f73;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+.current{
+    font-family: udemy sans,-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+    font-weight: 700;
+}
+
+.prev{
+    color: #6a6f73;
+    font-family: udemy sans,sf pro text,-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+    font-weight: 400;
+    text-decoration: line-through;
+}
