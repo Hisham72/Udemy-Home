@@ -5,7 +5,7 @@ body{
     line-height: 1.4;
     color: #1c1d1f;
 }
-.navbar{
+.my-nav-bar{
     display: flex;
     padding: 10px;
     width: 100%;
@@ -27,33 +27,28 @@ body{
     width: 40vw;
 }
 
-.searchTxt {
+.search-txt {
     border: 0;
     margin-bottom: 5px;
 }
-.searchSubmit{
+.search-submit{
     border: 0;
     background: 0;
     
 }
-.searchIcn{
+.search-icn{
     height: 20px;
     position: relative;
     top: 3px;
 }
 
-.globeIcn{
+.globe-icn{
     height: 20px;
 }
 
-#shopCrt{
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-top: 10px;
-    height: 20px;
-}
 
-.navbar > span{
+
+.my-nav-bar > span{
     cursor: pointer;
     margin-right: 20px;
     margin-left: 20px;
@@ -62,10 +57,10 @@ body{
     font-size: 14px;
     font-family: udemy sans,sf pro text,-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
 }
-.navbar > span:hover{
+.my-nav-bar > span:hover{
     color: #5624d0;
 }
-.navbar > button, #explore{
+.my-nav-bar > button, #explore{
     margin-right: 10px;
     margin-left: 10px;
     background-color: transparent;
@@ -92,6 +87,9 @@ body{
 
 #shopCrt{
     cursor: pointer;
+    height: 1.5rem;
+    width: 1.5rem;
+    align-self: center;
 }
 #lngbutton{
      width: 3%;
@@ -123,10 +121,10 @@ header{
 
 @media (max-width: 900px) {
     
-    .navbar > span, .navbar > form, .navbar > button, .navbar > img{
+    .my-nav-bar > span, .navbar > form, .navbar > button, .navbar > img{
         display: none;
     }
-    .navbar{
+    .ny-nav-bar{
         justify-content: space-between;
     }
     #udemylogo, #menuIcn{
@@ -227,6 +225,7 @@ header{
 .card > h4 {
     margin: 0px;
     font-size: 15px;
+    
 }
 
 .author{
@@ -235,6 +234,7 @@ header{
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 13px;
+
 }
 
 .current{
