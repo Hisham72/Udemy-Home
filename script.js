@@ -1,5 +1,5 @@
 const apiUrl = "http://localhost:3000/Categories";
-const categories = ["Python", "Excel", "Web Development", "JavaScript", "Data Science", "AWS Certification", "Drawing"];
+const categories = ["Python", "Excel", "WebDevelopment", "JavaScript", "DataScience", "Aws", "Drawing"];
 let cateObj;
 let selectedCate = "";
 const fetchFun = async (url) => {
@@ -40,6 +40,7 @@ function display(category){
     console.log(obj["title"]);
     let tab = document.querySelector(`#${category}`);
     tab.style.color = "black";
+    restoreDesc();
     let selectedCourses = document.querySelector("#selectedCourses").children;
     const header = selectedCourses[0];
     console.log(header.innerHTML);
@@ -50,7 +51,11 @@ function display(category){
     btn.innerHTML = `Explore ${category}`;
     const cards = selectedCourses[3];
     removeCards(cards);
-    createCards(cards, obj["courses"]);
+    let courses = obj["courses"];
+    courses.forEach(course => {
+        createCards(cards, course);
+
+    });
     
 
 }
@@ -62,9 +67,25 @@ function removeCards(cards){
     }
 }
 
-function createCards(cards, courses){
-    console.log(courses);
-    courses.forEach(course => {
+function removeDesc(){
+    let curTab = document.querySelector(`#${selectedCate}`);
+    curTab.style.color = "grey";
+    let selectedCourses = document.querySelector("#selectedCourses").children;
+    for (let i = 0; i < 3; i++){
+        selectedCourses[i].style.display = "none";
+    }
+}
+
+function restoreDesc(){
+    let selectedCourses = document.querySelector("#selectedCourses").children;
+    selectedCourses[0].style.display = "block";
+    selectedCourses[1].style.display = "block";
+    selectedCourses[2].style.display = "inline-block";
+}
+
+function createCards(cards, course){
+    
+    
         let card = document.createElement("div");
         card.className = "card";
 
@@ -100,7 +121,7 @@ function createCards(cards, courses){
 
         cards.appendChild(card);
 
-    });
+    
 
 }
 
@@ -108,7 +129,7 @@ let submit = document.querySelector('.search-icn');
 submit.addEventListener("click", search);
 
 function search(){
-    const keyword = document.querySelector("search-txt").textContent;
+    const keyword = document.querySelector(".search-txt").value;
     console.log(keyword);
     if (keyword.length === 0){
         console.log("sad");
@@ -116,18 +137,22 @@ function search(){
     else {
 
         let cards = document.querySelector("#selectedCourses").children[3];
+        removeDesc();
         removeCards(cards);
-        cateObj.forEach(obj =>{
+        categories.forEach(category => {
+            let obj = cateObj[category];
             const courses = obj["courses"];
             courses.forEach(course => {
-                if (obj["title"].search(keyword) !== -1){
-                    createCards(cards, courses);
+                console.log(course["title"]);
+                if (course["title"].search(keyword) !== -1){
+                    createCards(cards, course);
+                    console.log("hii"); 
                 }
     
             });
         });
     }
-    return false;
+    
 }
 
 read_data();
