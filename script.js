@@ -49,13 +49,25 @@ function display(category){
     para.innerHTML = obj["description"];
     const btn = selectedCourses[2];
     btn.innerHTML = `Explore ${category}`;
-    const cards = selectedCourses[3];
+    const cards = selectedCourses[3].children[0];
+    console.log(selectedCourses[3]);
+    let parent = document.createElement("div");
+    parent.className = "carousel-item active";
+    let cnt = 0;
     removeCards(cards);
     let courses = obj["courses"];
     courses.forEach(course => {
-        createCards(cards, course);
+        createCard(parent, course);
+        cnt++;
+        if (cnt === 5) {
+            cards.appendChild(parent);
+            parent = document.createElement("div");
+            parent.className = "carousel-item";
+            cnt = 0;
+        }
 
     });
+    if (cnt > 0) cards.appendChild(parent);
     
 
 }
@@ -83,20 +95,20 @@ function restoreDesc(){
     selectedCourses[2].style.display = "inline-block";
 }
 
-function createCards(cards, course){
-    
-    
-        let card = document.createElement("div");
-        card.className = "card";
+function createCard(parent, course){
+
+
+        let mycard = document.createElement("div");
+        mycard.className = "mycard";
 
         let img = document.createElement("img");
         img.setAttribute("src", course["image"]);
         img.setAttribute("alt", "python");
-        card.appendChild(img);
+        mycard.appendChild(img);
 
         let header4 = document.createElement("h4");
         header4.innerHTML = course["title"];
-        card.appendChild(header4);
+        mycard.appendChild(header4);
 
         let author = document.createElement("span");
         let lst_of_authors = "";
@@ -108,7 +120,7 @@ function createCards(cards, course){
         });
         author.innerHTML = lst_of_authors;
         author.className = "author";
-        card.appendChild(author);
+        mycard.appendChild(author);
 
         let price = document.createElement("section");
         price.className = "price";
@@ -117,9 +129,9 @@ function createCards(cards, course){
         cur.innerHTML = cur.innerHTML.concat("$");
         cur.className = "current";
         price.appendChild(cur);
-        card.appendChild(price);
+        mycard.appendChild(price);
 
-        cards.appendChild(card);
+        parent.appendChild(mycard);
 
     
 
@@ -136,21 +148,32 @@ function search(){
     }
     else {
 
-        let cards = document.querySelector("#selectedCourses").children[3];
+        let cards = document.querySelector("#selectedCourses").children[3].children[0];
         removeDesc();
         removeCards(cards);
+        let parent = document.createElement("div");
+        parent.className = "carousel-item active";
+        let cnt = 0;
         categories.forEach(category => {
             let obj = cateObj[category];
             const courses = obj["courses"];
             courses.forEach(course => {
                 console.log(course["title"]);
                 if (course["title"].search(keyword) !== -1){
-                    createCards(cards, course);
+                    createCard(cards, course);
+                    cnt++;
+                    if (cnt === 5){
+                        cards.appendChild(parent);
+                        parent = document.createElement("div");
+                        parent.className = "carousel-item";
+                        cnt = 0;
+                    }
                     console.log("hii"); 
                 }
     
             });
         });
+        if (cnt > 0) cards.appendChild(parent);
     }
     
 }
