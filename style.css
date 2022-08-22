@@ -259,5 +259,14 @@ header{
 }
 .top-cate{
     display: block;
+    width: 200px;
+    height: 200px;
+}
+.img-title{
+    font-family: udemy sans,-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -.02rem;
+    font-size: 1rem;
 }
 
